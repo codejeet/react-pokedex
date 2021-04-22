@@ -78,10 +78,6 @@ function calcAvgWeight(data: apiResponse[]) {
 function paginate(array, size, index) {
   return array.slice((index - 1) * size, index * size);
 }
-function useForceUpdate() {
-  const [value, setValue] = useState(0); // integer state
-  return () => setValue((value) => value + 1); // update the state to force render
-}
 
 export default function Home() {
   //Fetch data with params
@@ -94,8 +90,6 @@ export default function Home() {
   const [dataState, setDataState] = useState([{}] as apiResponse[]);
   const [avgWeight, setAvgWeight] = useState(0);
   const [page, setPage] = useState(1);
-
-  const forceUpdate = useForceUpdate();
 
   const [filter, setFilter] = useState("");
   const [sortby, setSortBy] = useState("");
